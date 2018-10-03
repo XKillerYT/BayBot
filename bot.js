@@ -1200,6 +1200,24 @@ client.on('message', async message => {
 * npm i file-system
 */
 
+  client.on('message' , async message => {
+	  var prefix = "?";
+         if(message.content.startsWith(prefix + "emoji")) {
+            let args = message.content.split(" ").slice(1);
+    if (args.length < 1) {
+      message.channel.send('You must provide some text to emojify!');
+  }
+  
+  message.channel.send(
+      args.join(' ')
+          .split('')
+          .map(c => codes[c] || c)
+          .join('')
+  );
+  };
+  });
+
+
 //code
 
 client.login(process.env.BOT_TOKEN);
