@@ -229,14 +229,7 @@ client.on('message', message => {
         })
         }
     });
- 
-client.on("guildCreate", guild => {
-    client.channels.get("495958539500781588").send(' ***  BOT  ***   **Join To**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
-    });
-    
-    client.on("guildDelete", guild => {
-    client.channels.get("495958539500781588").send(' ***  BOT  ***   **Leave From**   ***[ ' + `${guild.name}` + ' ]***   ,   **  Owner  **  ' + ' ***[ ' + '<@' + `${guild.owner.user.id}` + '>' + ' ]***  **|**  ***[ ' + '<' + `${guild.owner.user.username}` + '>' + ' ]***')
-    });
+
 client.on('message', message => {
         if (message.content.toLowerCase() === prefix + "inv") {
             if(!message.channel.guild) return;
