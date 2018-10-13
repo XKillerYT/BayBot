@@ -228,7 +228,7 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
   `
 ,`
         ***__Admin orders__***
-
+**
 『?clear / لحذف الشات 』
 『?mc / لقفل الشات  』
 『?unmc / لفتح الشات 』
@@ -244,7 +244,7 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
   `
 ,`
         ***__Games orders__***
-
+**
 『?لعبة صراحة / صراحة 』
 『?لعبة كت تويت / كت تويت 』
 『?لعبة لو خيروك / لو خيروك』
