@@ -561,11 +561,11 @@ client.on("message", message => {
             let args = najzx.content.split(" ").slice(1);
          
             if(!args[0]) {
-              najzx.channel.send("قم بمنشنة الرتبة | +rolebc @everyone الرساله")
+              najzx.channel.send("قم بمنشنة الرتبة | +rolebc  الرساله")
                 return;
             }
             if(!args[1]) {
-              najzx.channel.send("قم بكتابة الرسالة | +rolebc @everyone الرساله")
+              najzx.channel.send("قم بكتابة الرسالة | +rolebc الرساله")
                 return;
             }
          
