@@ -767,7 +767,6 @@ client.on("message", message => {
           .addField('المراد الابلاغ عليه:', `${user.username}#${user.discriminator} (${user.id}`)
           .addField('صاحب الابلاغ:', `${message.author.username}#${message.author.discriminator}`)
           .addField('السبب', reason);
-	  .addField('الدليل', reason);
           message.delete()
           return client.channels.get(modlog.id).sendEmbed(embed).catch(console.error);
           console.log('[report] Send By: ' + message.author.username)
