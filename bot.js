@@ -1424,15 +1424,6 @@ const secre = [
     }
 });
 
-client.on('guildMemberAdd', member => {
-  if(!ar[member.guild.id]) ar[member.guild.id] = {
-  onoff: 'Off',
-  role: 'Member'
-  }
-  if(ar[member.guild.id].onoff === 'Off') return;
-member.addRole(member.guild.roles.find(`name`, ar[member.guild.id].role)).catch(console.error)
-})
-
 client.on("message", function(message) {
 	var prefix = "?";
    if(message.content.startsWith(prefix + "rps")) {
