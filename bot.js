@@ -1521,7 +1521,7 @@ client.on("message",(message) => {
                 message.channel.send("** Done.**");
             });
         break;
-        case "tempof" :
+        case "tempoff" :
         if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
         message.guild.channels.get(temp[message.guild.id]).delete();
             temp[message.guild.id] = {
