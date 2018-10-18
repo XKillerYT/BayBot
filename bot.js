@@ -1482,6 +1482,7 @@ if (command == "emb")    {
     .setColor("RANDOM")
     message.channel.sendEmbed(say);
     message.delete();
+  }
 });
 
 //code
