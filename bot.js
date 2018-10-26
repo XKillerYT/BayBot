@@ -1465,31 +1465,6 @@ const pubg = [
  }
 });
 
-const AllwaiDiamondCodes = ['383606619671494659' , '383606619671494659'];
-client.on('message', message => {
-var prefix = "?";
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!AllwaiDiamondCodes.includes(message.author.id)) return;
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
-  let args = message.content.split(" ").slice(1);
-  if (command === "say")  {
-  if(!message.channel.guild) return message.reply('** __This command only for servers⛔__  **');
-          message.delete()
-    message.channel.sendMessage(args.join(" ")).catch(console.error);
-  }
-if (command == "emb")    {
-  if(!message.channel.guild) return message.reply('** __This command only for servers⛔__  **');
-    let say = new Discord.RichEmbed()
-    .setDescription(args.join("  "))
-    .setColor("RANDOM")
-    message.channel.sendEmbed(say);
-    message.delete();
-  }
-});
-
     client.on('message', message => {
 var prefix = "?";
 var cats = ["http://palestine-kitchen.ps/wp-content/uploads/2017/12/%D9%86%D9%83%D8%AA-%D8%AF%D8%A8%D8%A7%D9%86%D8%A9.png","http://www.i7lm.com/wp-content/uploads/2017/04/136769797816.jpg","https://4.bp.blogspot.com/-p62zmDIDXmI/WKzqNt9smaI/AAAAAAAAC4Q/sW_bSIB8OaQhwOYFeplc3uzz8PBN7l3YACEw/s1600/13602501135.jpg","https://www.universemagic.com/images/2016/03/7938-2-or-1457539273.jpg","https://1.bp.blogspot.com/-yFk-FzHSyE8/WR9fmPcsCUI/AAAAAAAAE6c/AmvjLadOiLY9GiCqMLHgA121bY2RS_dCwCLcB/s1600/%25D9%2586%25D9%2583%25D8%25AA%2B%25D9%2585%25D8%25B6%25D8%25AD%25D9%2583%25D8%25A9%2B1.jpg","https://l7zaat.com/wp-content/uploads/2018/02/423.jpg","https://www.petfinder.com/wp-content/uploads/2012/11/101438745-cat-conjunctivitis-causes.jpg","http://www.shuuf.com/shof/uploads/2018/02/08/jpg/shof_97d686082bdb0a2.jpg"];
