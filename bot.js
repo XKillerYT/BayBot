@@ -1587,9 +1587,9 @@ client.on("message", message => {
   if (message.author.bot) return;
     if(!message.channel.guild) return;
  let args = message.content.split(' ').slice(1).join(' ');
-    if(message.content.split(' ')[0] == prefix + 'bc3') {
+    if(message.content.split(' ')[0] == prefix + 'pbc') {
         if (!args[1]) {
-    message.channel.send(":white_check_mark: ***bc3 <message>***");
+    message.channel.send(":white_check_mark: ***pbc <message>***");
     return;
     }
         message.guild.members.forEach(member => {
@@ -1618,6 +1618,23 @@ client.on("message", message => {
             ground.src = Background;
             ctx.drawImage(ground, 0, 0, 400, 200);
  
+});
+ let url = member.user.displayAvatarURL.endsWith(".webp") ? member.user.displayAvatarURL.slice(5, -20) + ".png" : member.user.displayAvatarURL;
+               jimp.read(url, (err, ava) => {
+                    if (err) return console.log(err);
+                    ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                        if (err) return console.log(err);
+                       
+                        ctx.font = '17px Arial';
+                              ctx.fontSize = '13px';
+                              ctx.fillStyle = "#FFFFFF";
+                              ctx.textAlign = "center";
+              ctx.fillText(`${args} ` , 200, 100);
+member.sendFile(canvas.toBuffer());
+});
+});
+});
+}
 });
 
 //code
