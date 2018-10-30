@@ -32,7 +32,6 @@ client.on('ready', () => {
 
 //code
 
-let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
 client.on('message', message => {
   var sender = message.author
  
