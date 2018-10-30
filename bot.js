@@ -299,6 +299,7 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
 『?ct / لانشاء روم كتابي 』
 『?cv / لانشاء روم صوتي 』
 『?rolebc / برود كاست للرتب 』
+『?autorole / لتحديد رتبة تلقائية 』
 **
   `
 ,`
