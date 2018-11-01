@@ -1559,8 +1559,8 @@ hero.on('message',async message => {
     topRoyale.setTitle('# " Top');
     //topRoyale.setThumbnail(message.guild.iconURL);
     topRoyale.addField(`**TOP 5 TEXT 💬**`, _topText, true);
-    topRoyale.addField(`**TOP 5 VOICE 🎙**`, _voiceText, true);
-    topRoyale.setFooter(`Developed By: .RoyaleYouseeF¹⁵#5335`, message.guild.iconURL);
+    topRoyale.setFooter(`BayBot`, message.guild.iconURL);
+    oyale.setFooter(`BayBot`, message.guild.iconURL);
     message.channel.send(topRoyale).catch(e => {
       if(e) return message.channel.send(`**. Error; \`${e.message}\`**`);
     });
