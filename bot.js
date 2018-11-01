@@ -3,6 +3,7 @@ const fs = require('fs');
 const moment = require('moment');
 const client = new Discord.Client();
 let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
+let profile = JSON.parse(fs.readFileSync("./credit.json", "utf8"))
 var prefix = "?"
 
 client.on('ready', () => {
@@ -1531,7 +1532,6 @@ message.channel.sendEmbed(cat);
     }
 });
 
-let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 client.on("message", message => {
   if (message.author.bot) return;
  if(!message.channel.guild)return;
