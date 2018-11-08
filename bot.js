@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const moment = require('moment');
+const mysql = require("mysql"); //npm i mysql
 const client = new Discord.Client();
 let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
+const voice = JSON.parse(fs.readFileSync("./voiceState.json", "utf8"));
 var prefix = "?"
 
 client.on('ready', () => {
@@ -1577,6 +1579,217 @@ hero.on('voiceStateUpdate', (u, member) => {
     if(member.selfDeafen) return;
     vpoints[author].points += rPoints;
   }, 5000); // 5 Secs
+});
+
+client.on("message", message => {
+    if (message.author.bot) return;
+      if(!message.channel.guild) return;
+  if (message.content.startsWith(prefix + "profile")) {
+                                 let user = message.mentions.users.first();
+           var men = message.mentions.users.first();
+              var heg;
+              if(men) {
+                  heg = men
+              } else {
+                  heg = message.author
+              }
+            var mentionned = message.mentions.members.first();
+               var h;
+              if(mentionned) {
+                  h = mentionned
+              } else {
+                  h = message.member
+              }
+              var ment = message.mentions.users.first();
+              var getvalueof;
+              if(ment) {
+                getvalueof = ment;
+              } else {
+                getvalueof = message.author;
+              }
+     var mentionned = message.mentions.users.first();
+   
+      var client;
+        if(mentionned){
+            var client = mentionned;
+        } else {
+            var client = message.author;
+   
+        }
+  if (!profile[getvalueof.id]) profile[getvalueof.id] = {points: 0,reps: "NOT YET",credits: 1, level: 1,tite: "HypeLC User", rep: 0, lastDaily: "NOT COLLECTED"};
+              let Image = Canvas.Image,
+              canvas = new Canvas(300, 300),
+              ctx = canvas.getContext('2d');
+              fs.readFile("Super.png", function (err, Background) { //امتداد الصورة
+              if (err) return console.log(err);
+              let BG = Canvas.Image;
+              let ground = new Image;
+              ground.src = Background;
+              ctx.drawImage(ground, 0, 0, 300, 300); // حجم الصورة
+   
+  })
+   
+   
+   
+                  let url = getvalueof.displayAvatarURL.endsWith(".webp") ? getvalueof.displayAvatarURL.slice(5, -20) + ".png" : getvalueof.displayAvatarURL;
+                  jimp.read(url, (err, ava) => {
+                      if (err) return console.log(err);
+                      ava.getBuffer(jimp.MIME_PNG, (err, buf) => {
+                          if (err) return console.log(err);
+   
+                          //ur name
+                          ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
+                          ctx.fontSize = '40px'; // عرض الخط
+                          ctx.fillStyle = "#000000"; // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${getvalueof.username}`, 153, 173) // احداثيات اسمك
+   
+                          //ur name
+                          ctx.font = 'bold 16px kathen'; // حجم الخط و نوعه
+                          ctx.fontSize = '40px'; // عرض الخط
+                          ctx.fillStyle = "#f1f1f1"; // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${getvalueof.username}`, 151, 171) // احداثيات اسمك
+   
+                          //credit
+                          ctx.font = "bold 12px kathen" // نوع الخط وحجمه
+                          ctx.fontSize = '10px'; // عرض الخط
+                          ctx.fillStyle = "#f1f1f1" // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`$${profile[getvalueof.id].credits}`, 81, 159) // احداثيات المصاري
+   
+                          //poits
+                          ctx.font = "bold 12px kathen" // ن
+                          ctx.fontSize = '10px'; // عرض الخطوع الخط وحجمه
+                          ctx.fillStyle = "#f1f1f1" // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${profile[getvalueof.id].points}`, 221, 159) // احداثيات النقاط
+   
+                          //Level
+                          ctx.font = "bold 27px kathen" // نوع الخط و حجمه
+                          ctx.fontSize = '10px'; // عرض الخط
+                          ctx.fillStyle = "#f1f1f1" // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${profile[getvalueof.id].level}`, 221, 118) // احداثيات اللفل
+   
+                           //info
+                          ctx.font = "bold 12px kathen" // ن
+                          ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
+                          ctx.fillStyle = "#000000" // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 199) // احداثيات النقاط
+   
+                          //info
+                          ctx.font = "bold 12px kathen" // ن
+                          ctx.fontSize = '15px'; // عرض الخطوع الخط وحجمه
+                          ctx.fillStyle = "#f1f1f1" // لون الخط
+                          ctx.textAlign = "center"; // محاذا ة النص
+                          ctx.fillText(`${profile[getvalueof.id].tite}`, 150, 197) // احداثيات النقاط
+   
+                          // REP
+                          ctx.font = "bold 26px  kathen";
+                          ctx.fontSize = "50px";
+                          ctx.fillStyle = "#f1f1f1";
+                          ctx.textAlign = "center";
+                          ctx.fillText(`+${profile[getvalueof.id].rep}`, 80,117)
+   
+                          let Avatar = Canvas.Image;
+                          let ava = new Avatar;
+   
+  ava.src = buf;
+                          ctx.beginPath();
+                          ctx.arc(75, 100, 780, 0, Math.PI*2, true);
+                          ctx.closePath();
+                          ctx.clip();
+                          ctx.drawImage(ava, 116, 82, 72, 72);
+   
+  message.channel.startTyping()
+  message.channel.sendFile(canvas.toBuffer())
+  message.channel.stopTyping()
+  })
+  })
+  }
+  });
+
+var con = mysql.createConnection({
+  host: 'localhost',
+  user: "root",
+  password: "ebrahim.2007", //باس وورد الما سكل حق
+  database: 'baybot' 
+});
+
+con.connect(e => {
+  if(e) return console.log(e);
+  console.log(`First SQL is Running`);
+});
+client.on('message', message =>{
+  if(message.author.bot) return
+
+let xpadd = Math.floor(Math.random() * (30 - 20 + 1));
+
+  con.query(`SELECT * FROM users_data WHERE userID = '${message.author.id}'
+  ORDER BY userXP`, (err , rows)=>{
+    if(err) return console.log(err);
+
+    if(!rows || !rows[0] || rows.length < 1){
+      con.query(`INSERT INTO users_data (userID , userXP) VALUES ('${message.author.id}', ${0})`);
+      console.log(`VALUES add to ${message.author.tag}`);
+    } else {
+      con.query(`UPDATE users_data SET userXP = ${Math.floor(rows[0].userXP + xpadd)} WHERE userID = '${message.author.id}'`); 
+    };
+  
+  })
+
+});
+ 
+client.on('message', async message => {
+if(message.author.bot) return;
+if (message.channel.guild) {
+if (message.content === '-myV') {
+message.channel.send(`Your XP : ${voice[message.member.id].xp}
+Your Level : ${voice[message.member.id].level}`);
+      fs.writeFile('./voiceState.json', JSON.stringify(voice, null, 4), (e) => {
+        if(e) console.log(e);
+      });
+}}});
+
+
+ 
+  var returned;
+hero.on('voiceStateUpdate', (user, member) => {
+  if(member.selfDeaf || member.selfMute || member.serverDeaf || member.serverMute) {
+    returned = false;
+  }
+  if(!member.selfDeaf || !member.selfMute ||!member.serverDeaf || !member.serverMute) {
+    returned = true;
+  }
+  setInterval(() => {
+    if(returned === true) {
+      if(member.bot) return;
+      if(!member.voiceChannel) returned = false;
+      if(!voice[member.id]) voice[member.id] = {
+        xp: 1,
+        level: 1
+      };
+      voice[member.id] = {
+        xp: voice[member.id].xp + Math.floor(Math.random() * 4) + 1,
+        level: voice[member.id].level
+      };
+      var curXp = voice[member.id].xp;
+      var curLvl = voice[member.id].level;
+      if(curXp >= 300) {
+        voice[member.id] = {
+          xp: 1,
+          level: curLvl + 1
+        };
+      }
+      fs.writeFile('./voiceState.json', JSON.stringify(voice, null, 4), (e) => {
+        if(e) console.log(e);
+      });
+    } else if(returned === false) {
+      return null;
+    }
+  },5000);
 });
 
 //code
