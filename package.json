@@ -65,5 +65,5 @@
     "common-tags": "^1.8.0",
     "zalgolize": "^1.2.4",
     "ascii-data-table": "^2.1.1"
-  }
+    "mysql": "^2.16.0",
 }
