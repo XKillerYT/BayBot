@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const fs = require('fs');
 const moment = require('moment');
 const Canvas = require('canvas')
+const jimp = require('jimp')
 const mysql = require("mysql"); //npm i mysql
 const client = new Discord.Client();
 let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
