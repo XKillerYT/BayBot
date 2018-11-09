@@ -1298,7 +1298,7 @@ client.on("message", message => {
   if (message.author.bot) return;
  if(!message.channel.guild)return;
   if (!profile[message.author.id]) profile[message.author.id] = {
-    tite: 'HypeLC User',
+    tite: 'BayBot',
     rep: 0,
    reps: 'NOT YET',
    lastDaily:'Not Collected',
