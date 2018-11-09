@@ -269,11 +269,8 @@ client.on('message', message => {
 『-bc / لارسال رسالة لجميع اعضاء السيرفر 』
 『-kick / لطرد شخص من الدسكورد 』
 『-ban / لاعطاء شخص باند من الدسكورد 』
-『-mute / لاعطاء شخص ميوت 』
-『-unmute / لفك ميوت شخص 』
 『-ct / لانشاء روم كتابي 』
 『-cv / لانشاء روم صوتي 』
-『-rolebc / برود كاست للرتب 』
 『-autorole / لتحديد رتبة تلقائية 』
 『-setMsg / لاضافة كود رد تلقائي خاص فيك/ وسيرفرك 』
  
@@ -616,47 +613,7 @@ client.on("message", message => {
           console.log('[report] Send By: ' + message.author.username)
       }
       });
-client.on('message', async message =>{
 
-  let messageArray = message.content.split(" ");
-  let cmd = messageArray[0];
-  let args = messageArray.slice(1);
-  let sicon = message.author.displayAvatarURL;
-  if(cmd === `?myid`) {
-      var bots = new Discord.RichEmbed()
-
-      .setDescription(`** Your id: ${message.author.id}  **`)
-      .setColor('RANDOM')
-      message.channel.send(bots);
-  }
-});
-
-
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
-client.on("message", message => {
-    var prefix = "?"
-    if (!message.content.startsWith(prefix)) return;
-      let command = message.content.split(" ")[0];
-      command = command.slice(prefix.length);
-        if(command === "mskin") {
-                const args = message.content.split(" ").slice(1).join(" ")
-        if (!args) return message.channel.send("** Type your skin name **");
-        const image = new Discord.Attachment(`https://visage.surgeplay.com/full/256/${args}`, "skin.png");
-    message.channel.send(image)
-        }
-    });
-client.on('guildCreate', guild => {
-  var embed = new Discord.RichEmbed()
-  .setColor(0x5500ff)
-  .setDescription(`**شكراً لك لإضافه البوت الى سيرفرك**`)
-      guild.owner.send(embed)
-});
 client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
