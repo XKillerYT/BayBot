@@ -1676,7 +1676,7 @@ client.on('message', message => {
    let args = message.content.split(" ").slice(1);
  
  
- if(command == "-رسم") {
+ if(command == "رسم") {
      var Canvas = require('canvas')
    , Image = new Canvas.Image
    , canvas = new Canvas(450, 170)
