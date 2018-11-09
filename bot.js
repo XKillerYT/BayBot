@@ -231,7 +231,7 @@ client.on('message',async message => {
   }
 });
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
+if (message.content.startsWith(prefix + 'help')) {
     let pages = [`
 ***__وصف عن البوت__***
 **
@@ -287,7 +287,7 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
 『-rps / لعبة حجرة ورقة مقص 』
 『-اسئلة للعبة فورت نايت /  فورت نايت 』
 『-لعبة نكت / نكت 』
-
+『-لعبة رسم / رسم 』
 **
    
 `]
@@ -333,12 +333,12 @@ if (message.content.startsWith(prefix + 'help')) { //ALPHACODES
     }
 });
 client.on('message', message => {
-    if(message.content === '?help') {
+    if(message.content === '-help') {
         message.reply('تم ارساله بالخاص :white_check_mark: ');
     }
 });
 client.on('message', message => {
-    if(message.content === '?support') {
+    if(message.content === '-support') {
         message.channel.send('https://discord.gg/nKUfPST');
     }
 });
@@ -1765,6 +1765,38 @@ hero.on('voiceStateUpdate', (user, member) => {
     }
   },5000);
 });
+
+client.on('message', message => {
+    var prefix = "-"
+     let command = message.content.split(" ")[0];
+   command = command.slice(prefix.length);
+ 
+   let args = message.content.split(" ").slice(1);
+ 
+ 
+ if(command == "-رسم") {
+     var Canvas = require('canvas')
+   , Image = new Canvas.Image
+   , canvas = new Canvas(450, 170)
+   , ctx = canvas.getContext('2d');
+   ctx.font = '30px Impact';
+   let args = message.content.split(" ").slice(1);
+   
+ Image.src = canvas.toBuffer();
+ 
+     console.log(Image);
+ ctx.drawImage(Image, 0, 0, Image.width / 470, Image.height / 170);
+ ctx.fillText(args.join("  "),110, 70);
+ 
+ 
+ ctx.beginPath();
+ ctx.lineTo(50, 102);
+ ctx.stroke();
+ 
+ message.channel.sendFile(canvas.toBuffer());
+ }
+ 
+ });
 
 //code
 
