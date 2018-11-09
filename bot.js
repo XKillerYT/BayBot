@@ -1502,7 +1502,7 @@ client.on("message", message => {
               let Image = Canvas.Image,
               canvas = new Canvas(300, 300),
               ctx = canvas.getContext('2d');
-              fs.readFile("Super.jpg", function (err, Background) { //امتداد الصورة
+              fs.readFile("profile.png", function (err, Background) { //امتداد الصورة
               if (err) return console.log(err);
               let BG = Canvas.Image;
               let ground = new Image;
