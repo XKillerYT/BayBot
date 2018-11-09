@@ -8,6 +8,7 @@ const client = new Discord.Client();
 let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 const voice = JSON.parse(fs.readFileSync("./voiceState.json", "utf8"));
+const res = JSON.parse(fs.readFileSync('./responses.json' , 'utf8'));
 const prefix = "-"
 
 client.on('ready', () => {
@@ -582,15 +583,7 @@ Dat = currentTime.getDate()
  
 });
 
-client.on('message', message => {/// الفا كود | Emoko#0001
-     if (message.content === "-servers") {
-         if(!message.channel.guild) return;
-     let embed = new Discord.RichEmbed()
-  .setColor("RANDOM") /// الفا كود | Emoko#0001
-  .addField("**سيرفرات يلي البوت موجود فيها: **" , client.guilds.size)
-  message.channel.sendEmbed(embed);
-    }/// الفا كود | Emoko#0001
-});
+
 client.on('message' , message => {
   ;
   if(message.author.bot) return;
@@ -1726,6 +1719,43 @@ client.on('message', message => {
 if (err) console.error(err);
 })
 });
+
+client.on('message', async message => {
+    let messageArray = message.content.split(" ");
+   if(message.content.startsWith(prefix + "setMsg")) {
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send('You don\'t have permission').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+    
+    if(!messageArray[1]) return message.channel.send('Supply a message!').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+    if(!messageArray[2]) return message.channel.send('Suplly a response!').then(msg => {
+       msg.delete(4500);
+       message.delete(4500);
+    });
+    message.reply('Preparing...').then(msg => {
+        setTimeout(() => {
+           msg.edit('✅ Done!.'); 
+        },5000);
+    });
+    res[message.guild.id] = {
+        msg: messageArray[1],
+        response: messageArray[2],
+    }
+    fs.writeFile("./responses.json", JSON.stringify(res), (err) => {
+    if (err) console.error(err)
+  })
+   } 
+})
+
+client.on('message', async message => {
+   if(message.content === res[message.guild.id].msg) {
+       message.channel.send(res[message.guild.id].response)
+   }})
+
 
 //code
 
