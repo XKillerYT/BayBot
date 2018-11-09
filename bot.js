@@ -231,15 +231,16 @@ client.on('message',async message => {
   }
 });
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'help')) {
-    let pages = [`
-***__وصف عن البوت__***
-**
-:gem:  البوت فيه كثير ميزات حلوة و جميلة
- ا:rocket: البوت يعمل قرابة 24 ساعة
-**
-        ***__General orders__***
-**
+    if (message.author.bot) return;
+     if (message.content === prefix + "help") {
+     message.channel.send('**تم ارسال رسالة في الخاص**');
+
+
+
+
+ message.author.sendMessage(`
+ **
+[❖═════ General Commands ═══════❖]
 『-server / يعرض لك معلومات عن السيرفر』
 『-id / يعرض لك معلومات عنك』
 『-myroles / لرؤية جميع رتبك الشخصية بالسيرفر』
@@ -247,7 +248,6 @@ if (message.content.startsWith(prefix + 'help')) {
 『-link / لمعمل انفايت ( دعوة ) لشخص』
 『-inv / لدعوة البوت الى سيرفرك』
 『-support / سيرفر المساعدة』
-『-cmind / لكتابة اي شيء تقوله داخل صورة』
 『-servavatar / لرؤية صورة السيرفر』
 『-count / لرؤية عدد الاعضاء بالسيرفر』
 『-avatar / لرؤية صورة شخص 』
@@ -258,12 +258,9 @@ if (message.content.startsWith(prefix + 'help')) {
 『-credit / لرؤية عدد الكريديت الي معاك 』
 『-daily / لاستلام راتب الكريديت اليومي 』
 『-trans / لتحويل كريديت 』
+ 
+[❖═════ Administrator Commands ═══════❖]
 
-**
-  `
-,`
-        ***__Admin orders__***
-**
 『-clear / لحذف الشات 』
 『-mc / لقفل الشات  』
 『-unmc / لفتح الشات 』
@@ -276,11 +273,9 @@ if (message.content.startsWith(prefix + 'help')) {
 『-cv / لانشاء روم صوتي 』
 『-rolebc / برود كاست للرتب 』
 『-autorole / لتحديد رتبة تلقائية 』
-**
-  `
-,`
-        ***__Games orders__***
-**
+ 
+[❖═════ Games Commands ═══════❖]
+
 『-لعبة صراحة / صراحة 』
 『-لعبة كت تويت / كت تويت 』
 『-لعبة لو خيروك / لو خيروك』
@@ -288,53 +283,14 @@ if (message.content.startsWith(prefix + 'help')) {
 『-اسئلة للعبة فورت نايت /  فورت نايت 』
 『-لعبة نكت / نكت 』
 『-لعبة رسم / رسم 』
-**
-   
-`]
-    let page = 1;
- 
-    let embed = new Discord.RichEmbed()
-    .setColor('RANDOM')
-    .setFooter(`Page ${page} of ${pages.length}`)
-    .setDescription(pages[page-1])
- 
-    message.author.sendEmbed(embed).then(msg => {
- 
-        msg.react('◀').then( r => {
-            msg.react('▶')
- 
- 
-        const backwardsFilter = (reaction, user) => reaction.emoji.name === '◀' && user.id === message.author.id;
-        const forwardsFilter = (reaction, user) => reaction.emoji.name === '▶' && user.id === message.author.id;
- 
- 
-        const backwards = msg.createReactionCollector(backwardsFilter, { time: 2000000});
-        const forwards = msg.createReactionCollector(forwardsFilter, { time: 2000000});
- 
- 
- 
-        backwards.on('collect', r => {
-            if (page === 1) return;
-            page--;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        forwards.on('collect', r => {
-            if (page === pages.length) return;
-     
-      page++;
-            embed.setDescription(pages[page-1]);
-            embed.setFooter(`Page ${page} of ${pages.length}`);
-            msg.edit(embed)
-        })
-        })
-    })
-    }
-});
-client.on('message', message => {
-    if(message.content === '-help') {
-        message.reply('تم ارساله بالخاص :white_check_mark: ');
+『-cmind / لكتابة اي شيء تقوله داخل صورة』
+
+[❖═════ Other ═══════❖]
+
+『-invite / لدعوة البوت الى سيرفرك』
+
+ **`);
+
     }
 });
 client.on('message', message => {
