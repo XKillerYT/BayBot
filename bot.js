@@ -275,6 +275,7 @@ client.on('message', message => {
 『-cv / لانشاء روم صوتي 』
 『-rolebc / برود كاست للرتب 』
 『-autorole / لتحديد رتبة تلقائية 』
+『-setMsg / لاضافة كود رد تلقائي خاص فيك/ وسيرفرك 』
  
 [❖═════ Games Commands ═══════❖]
 
