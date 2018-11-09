@@ -9,6 +9,7 @@ let ar = JSON.parse(fs.readFileSync(`AutoRole.json`, `utf8`))
 let profile = JSON.parse(fs.readFileSync("./profile.json", "utf8"))
 const voice = JSON.parse(fs.readFileSync("./voiceState.json", "utf8"));
 const res = JSON.parse(fs.readFileSync('./responses.json' , 'utf8'));
+const temp = JSON.parse(fs.readFileSync('./temp.json', 'utf8'));
 const prefix = "-"
 
 client.on('ready', () => {
@@ -273,6 +274,8 @@ client.on('message', message => {
 『-cv / لانشاء روم صوتي 』
 『-autorole / لتحديد رتبة تلقائية 』
 『-setMsg / لاضافة كود رد تلقائي خاص فيك/ وسيرفرك 』
+『-temp on / لتشغيل الرومات المؤقتة 』
+『-temp off / لاطفاء الرومات المؤقتة 』
  
 [❖═════ Games Commands ═══════❖]
 
@@ -1714,7 +1717,55 @@ client.on('message', async message => {
        message.channel.send(res[message.guild.id].response)
    }})
 
-
+client.on("message",(message) => {
+    if (message.channel.type !== "text") return;
+    if (!message.content.startsWith(prefix)) return;
+        if(message.content.startsWith(prefix + "temp on")) {
+            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
+            temp[message.guild.id] = {
+                work : true,
+                channel : "Not Yet"
+            };
+            message.guild.createChannel("اضغط لصنع روم مؤقت", 'voice').then(c => {
+                c.setPosition(1);
+                temp[message.guild.id].channel = c.id
+                message.channel.send("** Done.**");
+            });
+        if(message.content.startsWith(prefix + "temp off")) {
+            if (!message.member.hasPermission("MANAGE_CHANNELS")) return message.reply("** You Don't Have Permission `Manage channels` To Do This Command");
+        message.guild.channels.get(temp[message.guild.id]).delete();
+            temp[message.guild.id] = {
+                work : false,
+                channel : "Not Yet"
+            };
+        message.channel.send("** Done.**");
+    };
+}})
+client.on("voiceStateUpdate", (o,n) => {
+    if (!temp[n.guild.id]) return;
+    if (temp[n.guild.id].work == false) return;
+    if (n.voiceChannelID == temp[n.guild.id].channel) {
+        n.guild.createChannel(n.user.username, 'voice').then(c => {
+            n.setVoiceChannel(c);
+            c.overwritePermissions(n.user.id, {
+                CONNECT:true,
+                SPEAK:true,
+                MANAGE_CHANNEL:true,
+                MUTE_MEMBERS:true,
+                DEAFEN_MEMBERS:true,
+                MOVE_MEMBERS:true,
+                VIEW_CHANNEL:true  
+            });
+        })
+    };
+    if (!o.voiceChannel) return;
+    if (o.voiceChannel.name == o.user.username) {
+        o.voiceChannel.delete();
+    };
+    fs.writeFile('./temp.json', JSON.stringify(temp), (err) => {
+        if (err) console.error(err);
+        })
+        });
 //code
 
 client.login(process.env.BOT_TOKEN);
