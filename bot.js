@@ -179,7 +179,7 @@ message.channel.send({embed});
 
 
 client.on('message', message => {
-        if (message.content.toLowerCase() === prefix + "inv") {
+        if (message.content.toLowerCase() === prefix + "invite") {
             if(!message.channel.guild) return;
         let embed = new Discord.RichEmbed()
         .setTitle(`:small_orange_diamond: Click Here To Invite | أضغط لدعوة البوت :small_orange_diamond: `)
