@@ -343,7 +343,7 @@ client.on('message', message => {
     }
 });
 client.on('message', message => {
-const prefix = "?";
+const prefix = "-";
   if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
  
