@@ -1197,35 +1197,44 @@ reaction3.on("collect", r => {
 }
 });
 
-const pubg = [
-     'Fortnite | ما هو اقوي سلاح برائيك ؟',
-     'Fortnite | ما هي افضل منطقة تنزل بها برايك ؟',
-     'Fortnite | كم عدد فوزاتك ؟',
-     'Fortnite | كم هو عدد اكثر قتلات لك ؟ ',
-     'Fortnite | كم عدد اصدقائك ؟ ',
-     'Fortnite | كم عدد سكناتك ؟ ',
-     'Fortnite | من هو افضل لاعب اجنبي حسب رايك ؟ ',
-     'Fortnite | من هو افضل لاعب عربي حسب رايك ؟ ',
-     'Fortnite | ما هو افضل طور حسب رايك ؟ ',
-     'Fortnite | هل انت محترف ام نوب ؟ ',
-     'Fortnite | ما هما افضل سلاحين مع بعض حسب رايك ؟ ',
+const Fortnite = [
+    'Fortnite | ما هو اقوي سلاح برائيك ؟',
+    'Fortnite | ما هي افضل منطقة تنزل بها برايك ؟',
+    'Fortnite | كم عدد فوزاتك ؟',
+    'Fortnite | كم هو عدد اكثر قتلات لك ؟ ',
+    'Fortnite | كم عدد اصدقائك ؟ ',
+    'Fortnite | كم عدد سكناتك ؟ ',
+    'Fortnite | من هو افضل لاعب اجنبي حسب رايك ؟ ',
+    'Fortnite | من هو افضل لاعب عربي حسب رايك ؟ ',
+    'Fortnite | ما هو افضل طور حسب رايك ؟ ',
+    'Fortnite | هل انت محترف ام نوب ؟ ',
+    'Fortnite | ما هما افضل سلاحين مع بعض حسب رايك ؟ ',
+    'Fortnite | هل تفضل السكار الصامت او ام سكس تين ازرق ؟ ',
+    'Fortnite | هل تفضل البومب الازرق او الدابل بارل ؟ ',
+    'Fortnite | تفضل الهانتنق او البولت اكشن ؟ ',
+    'Fortnite | تفضل البولت اكشن او الهيفي سنايبر ؟ ',
+    'Fortnite | تلعب على سوني او اكس بوكس او بيسي ؟ ',
+    'Fortnite | تفضل تلعب دو مع راكان او ميثك ؟ ',
+    'Fortnite | تفضل تلعب دو مع تيفو او نينجا ؟ ',
+    'Fortnite | اذا جاتك هدية من فورت نايت 10 الاف في بوكس او حساب فيه كل السكنات تختار ايش ؟ ',
+    'Fortnite | اذا فورت نايت قررت تعوضك باي عدد في بوكس كم تختار ؟ ',
 
- 
+
 ]
-   client.on('message', message => {
-       if (message.author.bot) return;
-   if(message.content.startsWith(prefix + "فورت نايت")) {
-     if(!message.channel.guild) return message.reply('** This command only for servers **');
-  var client= new Discord.RichEmbed()
-  .setTitle("لعبه اسئله فورت نايت")
-  .setColor('#FFA500')
-  .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
-  .setImage("https://cdn.discordapp.com/attachments/497081825492074496/500662255004942346/images.jpg")
-                  .setTimestamp()
- 
-   message.channel.sendEmbed(client);
-   message.react("??")
- }
+  client.on('message', message => {
+      if (message.author.bot) return;
+  if(message.content.startsWith(prefix + "فورت نايت")) {
+    if(!message.channel.guild) return message.reply('** This command only for servers **');
+ var client= new Discord.RichEmbed()
+ .setTitle("لعبه اسئله فورت نايت")
+ .setColor('RANDOM')
+ .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
+ .setImage("https://cdn.discordapp.com/attachments/497081825492074496/500662255004942346/images.jpg")
+                 .setTimestamp()
+
+  message.channel.sendEmbed(client);
+  message.react("??")
+}
 });
 
     client.on('message', message => {
