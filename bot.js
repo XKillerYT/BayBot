@@ -292,6 +292,7 @@ client.on('message', message => {
 [❖═════ Other ═══════❖]
 
 『-invite / لدعوة البوت الى سيرفرك』
+『-support / سيرفر المساعدة』
 
  **`);
 
@@ -1859,6 +1860,16 @@ client.on('message', message => {
       }
 )}
 })
+
+client.on('message', message => {
+    if (message.author.bot) return;
+     if (message.content === prefix + "support") {
+     message.channel.send('** تم ارسال الرابط بالخاص **');
+ message.author.sendMessage(`
+https://discord.gg/rKgwdEq
+ **`);
+    }
+});
 
 //code
 
