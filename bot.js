@@ -1712,7 +1712,7 @@ client.on('message', message => {
      message.channel.send('** تم ارسال الرابط بالخاص **');
  message.author.sendMessage(`
 https://discord.gg/rKgwdEq
- **`);
+ `);
     }
 });
 
