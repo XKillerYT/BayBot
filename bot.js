@@ -11,7 +11,6 @@ const temp = JSON.parse(fs.readFileSync('./temp.json', 'utf8'));
 const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
 const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
 const rc = JSON.parse(fs.readFileSync('./ReportsChannels.json' , 'utf8'));
-
 const prefix = "-"
 
 client.on('ready', () => {
@@ -274,9 +273,6 @@ client.on('message', message => {
 『-autorole / لتحديد رتبة تلقائية 』
 『-temp on / لتشغيل الرومات المؤقتة 』
 『-temp off / لاطفاء الرومات المؤقتة 』
-『-setMedia / لجعل روم خاص بالصور 』
-『-infoMedia / لرؤية معلومات حول روم الصور 』
-『-setReport / لجعل روم خاص بالشكاوي 』
  
 [❖═════ Games Commands ═══════❖]
 
@@ -1712,57 +1708,7 @@ message.channel.sendFile(canvas.toBuffer());
 });
 
 
-client.on('message', message => {
-    let room = message.content.split(" ").slice(1);
-    let findroom = message.guild.channels.find('name', `${room}`)
-    if(message.content.startsWith(prefix + "setReport")) {
-        if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
-        if(!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('**Sorry But You Dont Have Permission** `MANAGE_GUILD`' );
-if(!room) return message.channel.send('Please Type The Channel Name')
-if(!findroom) return message.channel.send('Cant Find This Channel')
-let embed = new Discord.RichEmbed()
-.setTitle('**Done The report Code Has Been Setup**')
-.addField('Channel:', `${room}`)
-.addField('Requested By:', `${message.author}`)
-.setThumbnail(message.author.avatarURL)
-.setFooter(`${client.user.username}`)
-message.channel.sendEmbed(embed)
-reportjson[message.guild.id] = {
-channel: room,
-}
-fs.writeFile("./report.json", JSON.stringify(reportjson), (err) => {
-if (err) console.error(err)
-})
-client.on('message', message => {
- 
-    if(message.content.startsWith(`${prefix}report`)) {
-        let  user  =  message.mentions.users.first();
-      if(!message.channel.guild) return message.reply('**This Command Only For Servers**');
-    let reason = message.content.split(" ").slice(2).join(" ");
-      if(!user)  return  message.channel.send("**You didn\'t mention the user to report**")
-      if(!reason) return message.reply(`**Please provide a reason**`)
-    let findchannel = (message.guild.channels.find('name', `${reportjson[message.guild.id].channel}`))
-    if(!findchannel) return message.reply(`Error 404: The report Channel Cant Find Or Not Set To Set The report Channel Type: ${prefix}setReport`)
-    message.channel.send(`Done Thank You For Your Report Will Be Seen By The Staffs`)
-    let sugembed = new Discord.RichEmbed()
-    .setTitle('New Report !')
-    .addField('Report By:', `${message.author}`)
-    .addField('Reported User:', `${user}`)
-    .addField('Report Reason:', `${reason}`)
-    .setFooter('Reaper')
-    findchannel.sendEmbed(sugembed)
-        .then(function (message) {
-          message.react('✅')
-          message.react('❌')
-        })
-        .catch(err => {
-            message.reply(`Error 404: The report Channel Cant Find Or Not Set To Set The report Channel Type: ${prefix}setReport`)
-            console.error(err);
-        });
-        }
-      }
-)}
-})
+
 
 client.on('message', message => {
     if (message.author.bot) return;
