@@ -250,7 +250,6 @@ client.on('message', message => {
 『-id / يعرض لك معلومات عنك』
 『-link / لمعمل انفايت ( دعوة ) لشخص』
 『-inv / لدعوة البوت الى سيرفرك』
-『-support / سيرفر المساعدة』
 『-servavatar / لرؤية صورة السيرفر』
 『-count / لرؤية عدد الاعضاء بالسيرفر』
 『-avatar / لرؤية صورة شخص 』
@@ -294,11 +293,7 @@ client.on('message', message => {
 
     }
 });
-client.on('message', message => {
-    if(message.content === '-support') {
-        message.channel.send('https://discord.gg/nKUfPST');
-    }
-});
+
 client.on('message', message => {
 const prefix = "-";
   if (message.author.kick) return;
