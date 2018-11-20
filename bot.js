@@ -257,8 +257,8 @@ client.on('message', message => {
 『-report / لرفع شكوى على عضو 』
 『-servers / لرؤية عدد السيرفرات التي داخل بها البوت 』
 『-myid / لمعرفة الايدي الخاص بك 』
-『-trans / لتحويل كريديت 』
- 
+『-user / لرؤية تاريخ انشاء حسابك ودخولك للسيرفر وعدد الدعوات 』
+
 [❖═════ Administrator Commands ═══════❖]
 
 『-clear / لحذف الشات 』
@@ -272,6 +272,7 @@ client.on('message', message => {
 『-autorole / لتحديد رتبة تلقائية 』
 『-temp on / لتشغيل الرومات المؤقتة 』
 『-temp off / لاطفاء الرومات المؤقتة 』
+『-c-channel / لانشاء روم يكون بعدد اعضاء السيرفر 』
  
 [❖═════ Games Commands ═══════❖]
 
@@ -544,7 +545,7 @@ client.on('message', message => {
 });
 client.on('message',async msg => {
   var p = "-";
-  if(msg.content.startsWith(p + "user")) {
+  if(msg.content.startsWith(p + "c-count")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **لا تملك الصلاحيات**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
   msg.guild.createChannel(`يتم تحضير الروم :[]` , 'voice').then(time => {
