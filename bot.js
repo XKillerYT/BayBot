@@ -580,7 +580,7 @@ client.on('message', message => {
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('-1bc')){
- if (message.author.id !== '383606619671494659') return message.reply('** متقدر ( فقط لصاحب البوت ) كيلر **')
+ if (message.author.id !== '461386341146558475') return message.reply('** متقدر ( فقط لصاحب البوت ) كيلر **')
 message.channel.sendMessage('** تم ارسال الرسالة **')
 client.users.forEach(m =>{
 m.sendMessage(args)
