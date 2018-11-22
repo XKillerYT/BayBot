@@ -247,17 +247,11 @@ client.on('message', message => {
 [❖═════ General Commands ═══════❖]
 『-server / يعرض لك معلومات عن السيرفر』
 『-id / يعرض لك معلومات عنك』
-『-myroles / لرؤية جميع رتبك الشخصية بالسيرفر』
-『-id / يعرض لك معلومات عنك』
 『-link / لمعمل انفايت ( دعوة ) لشخص』
 『-inv / لدعوة البوت الى سيرفرك』
-『-servavatar / لرؤية صورة السيرفر』
 『-count / لرؤية عدد الاعضاء بالسيرفر』
 『-avatar / لرؤية صورة شخص 』
-『-bot-info / لرؤية معلومات عن البوت 』
-『-report / لرفع شكوى على عضو 』
-『-servers / لرؤية عدد السيرفرات التي داخل بها البوت 』
-『-myid / لمعرفة الايدي الخاص بك 』
+『-bot / لرؤية معلومات عن البوت 』
 『-user / لرؤية تاريخ انشاء حسابك ودخولك للسيرفر وعدد الدعوات 』
 
 [❖═════ Administrator Commands ═══════❖]
@@ -1168,19 +1162,19 @@ client.on("message", function(message) {
     var RpsEmbed = new Discord.RichEmbed()
     .setAuthor(message.author.username)
     .setThumbnail(message.author.avatarURL)
-    .addField("Rock","ًں‡·",true)
-    .addField("Paper","ًں‡µ",true)
-    .addField("Scissors","ًں‡¸",true)
+    .addField("Rock","ً🥌",true)
+    .addField("Paper","ً📜",true)
+    .addField("Scissors","✂¸",true)
     message.channel.send(RpsEmbed).then(msg => {
-        msg.react(' ًں‡·')
-        msg.react("ًں‡¸")
-        msg.react("ًں‡µ")
-.then(() => msg.react('ًں‡·'))
-.then(() =>msg.react('ًں‡¸'))
-.then(() => msg.react('ًں‡µ'))
-let reaction1Filter = (reaction, user) => reaction.emoji.name === 'ًں‡·' && user.id === message.author.id;
-let reaction2Filter = (reaction, user) => reaction.emoji.name === 'ًں‡¸' && user.id === message.author.id;
-let reaction3Filter = (reaction, user) => reaction.emoji.name === 'ًں‡µ' && user.id === message.author.id;
+        msg.react('🥌)
+        msg.react("ً📜")
+        msg.react("ً✂")
+.then(() => msg.react('ً🥌'))
+.then(() =>msg.react('ً📜'))
+.then(() => msg.react('ً✂'))
+let reaction1Filter = (reaction, user) => reaction.emoji.name === 'ً🥌·' && user.id === message.author.id;
+let reaction2Filter = (reaction, user) => reaction.emoji.name === 'ً📜¸' && user.id === message.author.id;
+let reaction3Filter = (reaction, user) => reaction.emoji.name === 'ً✂' && user.id === message.author.id;
 let reaction1 = msg.createReactionCollector(reaction1Filter, { time: 12000 });
 	    
 let reaction2 = msg.createReactionCollector(reaction2Filter, { time: 12000 });
