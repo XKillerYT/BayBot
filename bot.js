@@ -1166,7 +1166,7 @@ client.on("message", function(message) {
     .addField("Paper","ً📜",true)
     .addField("Scissors","✂¸",true)
     message.channel.send(RpsEmbed).then(msg => {
-        msg.react('🥌)
+        msg.react('🥌')
         msg.react("ً📜")
         msg.react("ً✂")
 .then(() => msg.react('ً🥌'))
