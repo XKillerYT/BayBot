@@ -140,7 +140,6 @@ client.on('message', message => {
        }
    });
 client.on('message', function(msg) {
-    const prefix = '?'
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
       .setColor('RANDOM')
@@ -239,7 +238,7 @@ client.on('message', message => {
 });
 
 client.on('message', message => {
-const prefix = "-";
+
   if (message.author.kick) return;
   if (!message.content.startsWith(prefix)) return;
  
@@ -395,7 +394,6 @@ client.on('message', msg => {
 });
 client.on('message', async msg => {
      client.snek = require('snekfetch');
-    var p = "?"
   if(msg.content.startsWith(p + "cmind")) {
    let args = msg.content.split(' ').slice(1).join(' ');
 
@@ -448,7 +446,6 @@ client.on('message', message => {
       message.channel.send(SaifDz);
     });
 client.on("message", message => {
-    const prefix = "?"
               
           if(!message.channel.guild) return;
    if(message.author.bot) return;
@@ -514,7 +511,6 @@ client.on('message', message => {
     }
 });
 client.on('message',async msg => {
-  var p = "-";
   if(msg.content.startsWith(p + "c-count")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **لا تملك الصلاحيات**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
@@ -761,7 +757,6 @@ client.on('message', function(message) {
 client.on('message',async msg => {
      if(msg.channel.type === "dm") return;
   if(msg.author.bot) return;
-  var p = "?";
   if(msg.content.startsWith(p + "setstats")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **go play minecraft**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
@@ -1250,7 +1245,6 @@ Your Level : ${voice[message.member.id].level}`);
  
 
 client.on('message', message => {
-    var prefix = "-"
      let command = message.content.split(" ")[0];
    command = command.slice(prefix.length);
  
