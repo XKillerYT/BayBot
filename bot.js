@@ -81,7 +81,7 @@ State : __${ar[message.guild.id].onoff}__
 Role : __${ar[message.guild.id].role}__`)
  
  
-    .setColor(`BLUE`)
+        .setColor('#000000').setColor('#36393e')
     message.channel.send({embed})
   }
  
@@ -142,7 +142,7 @@ client.on('message', message => {
 client.on('message', function(msg) {
     if(msg.content.startsWith (prefix  + 'server')) {
       let embed = new Discord.RichEmbed()
-      .setColor('RANDOM')
+        .setColor('#000000').setColor('#36393e')
       .setThumbnail(msg.guild.iconURL)
       .setTitle(`Showing Details Of  **${msg.guild.name}*`)
       .addField('🌐** نوع السيرفر**',`[** __${msg.guild.region}__ **]`,true)
@@ -176,6 +176,7 @@ client.on('message',async message => {
     .addField('- عدد الاعضاء الذي لديهم نفس الرتبة',role.members.size,true)
     .addField('- مركز الرتبة بين كل الرتب',role.position,true)
     .addField('- خصائص الرتبة',role.permissions,true)
+            .setColor('#000000').setColor('#36393e')
     .setFooter(message.author.tag,message.author.avatarURL);
  
     message.channel.send(iQp);
@@ -264,7 +265,7 @@ client.on('message', message => {
  
   const banembed = new Discord.RichEmbed()
   .setAuthor('Kicked !', user.displayAvatarURL)
-  .setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
   .setTimestamp()
   .addField("User:",  `[ + ${user.tag} + ]`)
   .addField("By:", `[  + ${message.author.tag} +  ]`)
@@ -282,7 +283,7 @@ client.on('message' , message => {
         message.guild.owner.send(`لقد تم فك الباند عن الشخص \n ${user} \n By : <@${message.author.id}>`)
         var embed = new Discord.RichEmbed()
         .setThumbnail(message.author.avatarURl)
-        .setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
         .setTitle('**●Unban** !')
         .addField('**●User Unban :** ', `${user}` , true)
         .addField('**●By :**' ,       ` <@${message.author.id}> ` , true)
@@ -343,6 +344,7 @@ client.on('message', async message => {
        .addField('# - السيرفر:',message.guild.name,true)
        .addField('# - تم طردك بواسطة',message.author,true)
        .addField('# - السبب',reason)
+               .setColor('#000000').setColor('#36393e')
        .setFooter(message.author.tag,message.author.avatarURL);
        mention.send(thisEmbed).then(() => {
        mention.ban({
@@ -443,6 +445,7 @@ client.on('message', message => {
       .setTitle('🌷| Members info')
       .addBlankField(true)
       .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
+              .setColor('#000000').setColor('#36393e')
       message.channel.send(SaifDz);
     });
 client.on("message", message => {
@@ -454,7 +457,7 @@ client.on("message", message => {
   
       .setTitle(`This is  ** ${message.guild.name} **  Photo !`)
   .setAuthor(message.author.username, message.guild.iconrURL)
-    .setColor(0x164fe3)
+        .setColor('#000000').setColor('#36393e')
     .setImage(message.guild.iconURL)
     .setURL(message.guild.iconrURL)
                     .setTimestamp()
@@ -476,7 +479,7 @@ client.on('message', message => {
           
       }
         const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
         .setAuthor('Avatar Link :')
         .setTitle('Click Here')
         .setURL(`${omar.avatarURL}`)
@@ -496,7 +499,7 @@ client.on('message', message => {
       message.channel.sendMessage(invite.url)
     )
     const embed = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
           .setDescription("تم ارسال الرابط ")
            .setAuthor(client.user.username, client.user.avatarURL)
                  .setAuthor(client.user.username, client.user.avatarURL)
@@ -504,7 +507,7 @@ client.on('message', message => {
 
       message.channel.sendEmbed(embed).then(message => {message.delete(10000)})
               const Embed11 = new Discord.RichEmbed()
-        .setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
         
     .setDescription("** مدة الرابط : ساعه | عدد استخدامات الرابط : 100 **")
       message.channel.sendEmbed(Embed11)
@@ -713,7 +716,7 @@ client.on('message', message => {
      if (message.content === (prefix + "bot")) {
          if(!message.channel.guild) return;
      let embed = new Discord.RichEmbed()
-  .setColor("#8650a7")
+        .setColor('#000000').setColor('#36393e')
   .addField("** ✅ Servers: **" , client.guilds.size)
   .addField("** ✅ Users: **" , client.users.size)
   .addField("** ✅ Channels: **" , client.channels.size)
@@ -864,7 +867,7 @@ if (message.content.startsWith('-صراحة')) {
     if(!message.channel.guild) return message.reply('** This command only for servers **');
  var client= new Discord.RichEmbed()
  .setTitle("لعبة صراحة ..")
- .setColor('RANDOM')
+        .setColor('#000000').setColor('#36393e')
  .setDescription(`${Sra7a[Math.floor(Math.random() * Sra7a.length)]}`)
  .setImage("https://cdn.discordapp.com/attachments/371269161470525444/384103927060234242/125.png")
                  .setTimestamp()
@@ -908,7 +911,7 @@ const cuttweet = [
    if(message.content.startsWith(prefix + "كت تويت")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
+        .setColor('#000000').setColor('#36393e')
    .setThumbnail(message.author.avatarURL)
  .addField('لعبه كت تويت' ,
   `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
@@ -948,7 +951,7 @@ const secre = [
    if(message.content.startsWith(prefix + "لو خيروك")) {
                 if(!message.channel.guild) return message.reply('** This command only for servers**');
   var embed = new Discord.RichEmbed()
-  .setColor('RANDOM')
+        .setColor('#000000').setColor('#36393e')
  
    .setThumbnail(message.author.avatarURL)
  .addField('لعبه لو خيروك' ,
@@ -971,6 +974,7 @@ client.on("message", function(message) {
     .addField("Rock","ً🥌",true)
     .addField("Paper","ً📜",true)
     .addField("Scissors","✂¸",true)
+            .setColor('#000000').setColor('#36393e')
     message.channel.send(RpsEmbed).then(msg => {
         msg.react('🥌')
         msg.react("ً📜")
@@ -1029,7 +1033,7 @@ const Fortnite = [
     if(!message.channel.guild) return message.reply('** This command only for servers **');
  var client= new Discord.RichEmbed()
  .setTitle("لعبه اسئله فورت نايت")
- .setColor('RANDOM')
+        .setColor('#000000').setColor('#36393e')
  .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
  .setImage("https://cdn.discordapp.com/attachments/497081825492074496/500662255004942346/images.jpg")
                  .setTimestamp()
@@ -1480,7 +1484,7 @@ h = message.member
 moment.locale('ar-TN');
 var id = new  Discord.RichEmbed()
 
-.setColor("RANDOM")
+        .setColor('#000000').setColor('#36393e')
 .setThumbnail(message.author.avatarURL)
 .addField(': تاريخ دخولك للديسكورد',` \`${moment(heg.createdTimestamp).format('YYYY/M/D HH:mm:ss')} \`**\n ${moment(heg.createdTimestamp).fromNow()}**` ,true) 
 .addField(': تاريخ دخولك لسيرفرنا', `\`${moment(h.joinedAt).format('YYYY/M/D HH:mm:ss')}  \` **\n ${moment(h.joinedAt).fromNow()} **`, true)
