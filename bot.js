@@ -50,7 +50,7 @@ if(!message.guild) return
   role: 'Member'
   }
  
-if(message.content.startsWith(`?autorole`)) {
+    if (message.content.toLowerCase() === prefix + "autorole") {
          
   let perms = message.member.hasPermission(`MANAGE_ROLES`)
  
@@ -71,7 +71,7 @@ if(message.content.startsWith(`?autorole`)) {
     message.channel.send(`**The AutoRole Has Been Changed to ${newRole}.**`)
   }
         }
-if(message.content === '?info') {
+    if (message.content.toLowerCase() === prefix + "info") {
    let perms = message.member.hasPermission(`MANAGE_GUILD`)
    if(!perms) return message.reply(`You don't have permissions.`)
     var embed = new Discord.RichEmbed()
@@ -360,8 +360,7 @@ client.on('message', async message => {
 });
 
 client.on('message', message => {
-
-    if (message.content === "?mc") {
+  if(message.content.startsWith(prefix + "mc")) {
                         if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' ليس لديك صلاحيات');
@@ -372,7 +371,7 @@ if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' لي
                message.reply("تم تقفيل الشات ✅ ")
            });
              }
-if (message.content === "?unmc") {
+  if(message.content.startsWith(prefix + "unmc")) {
     if(!message.channel.guild) return message.reply(' هذا الامر فقط للسيرفرات !!');
 
 if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply('ليس لديك صلاحيات');
@@ -412,7 +411,7 @@ client.on ("guildMemberRemove", member => {
 })
 
 client.on("message", (message) => {
-if (message.content.startsWith("?cv")) {
+  if(message.content.startsWith(prefix + "cv")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
@@ -421,7 +420,7 @@ if (message.content.startsWith("?cv")) {
 }
 });
 client.on("message", (message) => {
-if (message.content.startsWith("?ct")) {
+  if(message.content.startsWith(prefix + "ct")) {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'text');
@@ -438,7 +437,7 @@ client.on("guildMemberAdd", member => {
 })
 client.on('message', message => {
               if (!message.channel.guild) return;
-      if(message.content =='?count')
+  if(message.content.startsWith(prefix + "count")) {
       var SaifDz = new Discord.RichEmbed()
       .setThumbnail(message.author.avatarURL)
       .setFooter(message.author.username, message.author.avatarURL)
@@ -863,7 +862,7 @@ const Sra7a = [
     'صراحه  |  ما هي أمنياتك المُستقبلية؟‏',
 ]
   client.on('message', message => {
-if (message.content.startsWith('-صراحة')) {
+  if(message.content.startsWith(prefix + "صراحة")) {
     if(!message.channel.guild) return message.reply('** This command only for servers **');
  var client= new Discord.RichEmbed()
  .setTitle("لعبة صراحة ..")
