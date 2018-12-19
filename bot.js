@@ -1028,17 +1028,17 @@ const pubg = [
 ]
    client.on('message', message => {
        if (message.author.bot) return;
-      if(message.content.startsWith(prefix + "فورت نايت")) {
+ if (message.content.startsWith('$pubg')) {
      if(!message.channel.guild) return message.reply('** This command only for servers **');
   var client= new Discord.RichEmbed()
-     .setTitle("لعبه اسئله فورت نايت")
-            .setColor('#000000').setColor('#36393e')
+   .setTitle("لعبه اسئله فورت نايت")
+  .setColor('#000000').setColor('#36393e')
   .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
-  .setImage("https://cdn.discordapp.com/attachments/416617103492251658/477741838292484127/pubg-orange-square.png")
+  .setImage("https://cdn.discordapp.com/attachments/497081825492074496/500662255004942346/images.jpg")
                   .setTimestamp()
  
    message.channel.sendEmbed(client);
-   message.react(":video_game:")
+   message.react("??")
  }
 });
 
