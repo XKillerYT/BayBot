@@ -435,19 +435,7 @@ client.on("guildMemberAdd", member => {
 انت العضو رقم ${member.guild.memberCount} `) 
 }).catch(console.error)
 })
-client.on('message', message => {
-              if (!message.channel.guild) return;
-  if(message.content.startsWith(prefix + "count")) {
-      var Embed = new Discord.RichEmbed()
-      .setThumbnail(message.author.avatarURL)
-      .setFooter(message.author.username, message.author.avatarURL)
-      .setTitle('🌷| Members info')
-      .addBlankField(true)
-      .addField('عدد اعضاء السيرفر',`${message.guild.memberCount}`)
-      .setColor('#000000').setColor('#36393e')
-      message.channel.send(Embed);
-  }
-    });
+
 client.on("message", message => {
               
           if(!message.channel.guild) return;
