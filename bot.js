@@ -1024,6 +1024,7 @@ if (message.content.startsWith(prefix + "فورت نايت")) {
   .setColor('#000000').setColor('#36393e')
   .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
   .setImage("https://d.top4top.net/p_1083a4btc1.jpg")
+  .setThumbnail('https://d.top4top.net/p_1083a4btc1.jpg')
                   .setTimestamp()
  
    message.channel.sendEmbed(client);
