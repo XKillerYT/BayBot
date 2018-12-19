@@ -1023,7 +1023,7 @@ if (message.content.startsWith(prefix + "فورت نايت")) {
    .setTitle("لعبه اسئله فورت نايت")
   .setColor('#000000').setColor('#36393e')
   .setDescription(`${pubg[Math.floor(Math.random() * pubg.length)]}`)
-  .setImage("https://cdn.discordapp.com/attachments/497081825492074496/500662255004942346/images.jpg")
+  .setImage("https://d.top4top.net/p_1083a4btc1.jpg")
                   .setTimestamp()
  
    message.channel.sendEmbed(client);
