@@ -12,7 +12,7 @@ const temp = JSON.parse(fs.readFileSync('./temp.json', 'utf8'));
 const id = JSON.parse(fs.readFileSync("./id/rank.json", "utf8"));
 const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
 const rc = JSON.parse(fs.readFileSync('./ReportsChannels.json' , 'utf8'));
-const prefix = "-"
+const prefix = "="
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -115,7 +115,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Diamond Codes ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`By X_KillerYT | -help `)//حقوق دايموند كودز
+client.user.setGame(`By X_KillerYT | =help `)//حقوق دايموند كودز
 client.user.setStatus("online")
 
 });
@@ -193,45 +193,51 @@ client.on('message', message => {
  message.author.sendMessage(`
  **
 [❖═════ General Commands ═══════❖]
-『-server / يعرض لك معلومات عن السيرفر』
-『-id / يعرض لك معلومات عنك』
-『-link / لمعمل انفايت ( دعوة ) لشخص』
-『-inv / لدعوة البوت الى سيرفرك』
-『-count / لرؤية عدد الاعضاء بالسيرفر』
-『-avatar / لرؤية صورة شخص 』
-『-bot / لرؤية معلومات عن البوت 』
-『-user / لرؤية تاريخ انشاء حسابك ودخولك للسيرفر وعدد الدعوات 』
+『${prefix}server / يعرض لك معلومات عن السيرفر』
+『${prefix}id / يعرض لك معلومات عنك』
+『${prefix}link / لمعمل انفايت ( دعوة ) لشخص』
+『${prefix}inv / لدعوة البوت الى سيرفرك』
+『${prefix}count / لرؤية عدد الاعضاء بالسيرفر』
+『${prefix}avatar / لرؤية صورة شخص 』
+『${prefix}bot / لرؤية معلومات عن البوت 』
+『${prefix}user / لرؤية تاريخ انشاء حسابك ودخولك للسيرفر وعدد الدعوات 』
+『${prefix}sug / لاقتراح فكرة على السيرفر』
 
 [❖═════ Administrator Commands ═══════❖]
 
-『-clear / لحذف الشات 』
-『-mc / لقفل الشات  』
-『-unmc / لفتح الشات 』
-『-bc / لارسال رسالة لجميع اعضاء السيرفر 』
-『-kick / لطرد شخص من الدسكورد 』
-『-ban / لاعطاء شخص باند من الدسكورد 』
-『-ct / لانشاء روم كتابي 』
-『-cv / لانشاء روم صوتي 』
-『-autorole / لتحديد رتبة تلقائية 』
-『-temp on / لتشغيل الرومات المؤقتة 』
-『-temp off / لاطفاء الرومات المؤقتة 』
-『-c-count / لانشاء روم يكون بعدد اعضاء السيرفر 』
+『${prefix}clear / لحذف الشات 』
+『${prefix}mc / لقفل الشات  』
+『${prefix}unmc / لفتح الشات 』
+『${prefix}bc / لارسال رسالة لجميع اعضاء السيرفر 』
+『${prefix}kick / لطرد شخص من الدسكورد 』
+『${prefix}ban / لاعطاء شخص باند من الدسكورد 』
+『${prefix}ct / لانشاء روم كتابي 』
+『${prefix}cv / لانشاء روم صوتي 』
+『${prefix}temp on / لتشغيل الرومات المؤقتة 』
+『${prefix}temp off / لاطفاء الرومات المؤقتة 』
+『${prefix}c-count / لانشاء روم يكون بعدد اعضاء السيرفر 』
+『${prefix}infoMedia / لمعرفة معلومات روم الصور 』
+『${prefix}setSug / لجعل روم للاقتراحات』
+『${prefix}toggleMedia / لتشغيل او ايقاف روم الصور فقط 』
+『${prefix}setMedia / لتحديد روم الصور  』
+『${prefix}mute / لاعطاء شخص ميوت 』
+『${prefix}unmute / لازالة ميوت من شخص 』
  
 [❖═════ Games Commands ═══════❖]
 
-『-لعبة صراحة / صراحة 』
-『-لعبة كت تويت / كت تويت 』
-『-لعبة لو خيروك / لو خيروك』
-『-rps / لعبة حجرة ورقة مقص 』
-『-اسئلة للعبة فورت نايت /  فورت نايت 』
-『-لعبة نكت / نكت 』
-『-لعبة رسم / رسم 』
-『-cmind / لكتابة اي شيء تقوله داخل صورة』
+『${prefix}لعبة صراحة / صراحة 』
+『${prefix}لعبة كت تويت / كت تويت 』
+『${prefix}لعبة لو خيروك / لو خيروك』
+『${prefix}rps / لعبة حجرة ورقة مقص 』
+『${prefix}اسئلة للعبة فورت نايت /  فورت نايت 』
+『${prefix}لعبة نكت / نكت 』
+『${prefix}لعبة رسم / رسم 』
+『${prefix}cmind / لكتابة اي شيء تقوله داخل صورة』
 
 [❖═════ Other ═══════❖]
 
-『-invite / لدعوة البوت الى سيرفرك』
-『-support / سيرفر المساعدة』
+『${prefix}invite / لدعوة البوت الى سيرفرك』
+『${prefix}support / سيرفر المساعدة』
 
  **`);
 
