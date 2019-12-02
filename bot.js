@@ -115,7 +115,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Diamond Codes ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`By X_KillerYT | =help `)//حقوق دايموند كودز
+client.user.setGame(`RMS System | =help `)//حقوق دايموند كودز
 client.user.setStatus("online")
 
 });
