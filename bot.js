@@ -24,6 +24,7 @@ const message = new Set();
 const userId = new Set();
 const points = new Set();
 const msg = new Set();
+const p = new Set();
 
 ////////////////////////////////////////////////////////////////////////////////////
 
