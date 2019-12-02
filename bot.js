@@ -157,7 +157,7 @@ client.on('message', function(msg) {
       msg.channel.send({embed:embed});
     }
   });
-client.on('message',async message => {
+client.on('message', message => {
   let args = message.content.split(" ").slice(1).join(" ");
   let role = message.guild.roles.find('name',args) || message.guild.roles.get(args);
  
