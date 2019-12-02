@@ -412,22 +412,7 @@ client.on('message', message => {
     message.reply('ممنوع النشر !!');
   }
 });
-client.on('message', message => {
-     client.snek = require('snekfetch');
-  if(message.content.startsWith(p + "cmind")) {
-   let args = message.content.split(' ').slice(1).join(' ');
 
- if(args.length < 1) return args.missing(message, 'No text added', this.help);
-  message.channel.startTyping()
-  const searchMessage = await message.channel.send('🖌️Painting...');
-  const { body } = await client.snek.get(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${encodeURIComponent(args)}`);
-  message.channel.send({file: { attachment:body.message, name: 'changemymind.png'}}).then(()=> { searchMessage.delete(); message.channel.stopTyping(); });
-};
-});
-
-client.on ("guildMemberRemove", member => {
-   
-})
 
 client.on("message", (message) => {
   if(message.content.startsWith(prefix + "cv")) {
