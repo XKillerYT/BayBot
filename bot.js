@@ -399,7 +399,7 @@ client.on('message', msg => {
     msg.reply('ممنوع النشر !!');
   }
 });
-client.on('message', async msg => {
+client.on('message', message => {
      client.snek = require('snekfetch');
   if(msg.content.startsWith(p + "cmind")) {
    let args = msg.content.split(' ').slice(1).join(' ');
@@ -507,7 +507,7 @@ client.on('message', message => {
       message.channel.sendEmbed(Embed11)
     }
 });
-client.on('message',async msg => {
+client.on('message', message => {
   if(msg.content.startsWith(prefix + "c-count")) {
   if(!msg.guild.member(msg.author).hasPermissions('MANAGE_CHANNELS')) return msg.reply('❌ **لا تملك الصلاحيات**');
   if(!msg.guild.member(client.user).hasPermissions(['MANAGE_CHANNELS'])) return msg.reply('❌ **البوت لا يمتلك صلاحية**');
@@ -735,7 +735,7 @@ client.on('message', function(message) {
     }
 });
 
-client.on('message',async msg => {
+client.on('message', message => {
      if(msg.channel.type === "dm") return;
   if(msg.author.bot) return;
   if(msg.content.startsWith(p + "setstats")) {
@@ -1211,7 +1211,7 @@ let xpadd = Math.floor(Math.random() * (30 - 20 + 1));
 
 });
  
-client.on('message', async message => {
+client.on('message', message => {
 if(message.author.bot) return;
 if (message.channel.guild) {
 if (message.content === '-myV') {
@@ -1493,7 +1493,7 @@ message.channel.sendEmbed(id);
 
 });
 
-        client.on('message', async message => {
+        client.on('message', message => {
             let muteReason = message.content.split(" ").slice(3).join(" ");
             let mutePerson = message.mentions.users.first();
             let messageArray = message.content.split(" ");
