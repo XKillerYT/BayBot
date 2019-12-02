@@ -14,6 +14,8 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
 const rc = JSON.parse(fs.readFileSync('./ReportsChannels.json' , 'utf8'));
 const prefix = "="
 
+const client = new Discord.Client({disableEveryone: true});
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   console.log('')
