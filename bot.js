@@ -298,7 +298,7 @@ client.on('message' , message => {
     }
 });
 
-client.on('message', async message => {
+client.on('message', message => {
     let args = message.content.split(" ");
     let command = args[0];
 
