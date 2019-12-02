@@ -14,7 +14,17 @@ const pics = JSON.parse(fs.readFileSync('./pics.json' , 'utf8'));
 const rc = JSON.parse(fs.readFileSync('./ReportsChannels.json' , 'utf8'));
 const prefix = "="
 
-const client = new Discord.Client({disableEveryone: true});
+////////////////////////////////////////////////////////////////////////////////////
+
+const channel = new Set();
+const guild = new Set();
+const oldChannel = new Set();
+const guildSettings = new Set();
+const message = new Set();
+const userId = new Set();
+const points = new Set();
+
+////////////////////////////////////////////////////////////////////////////////////
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
